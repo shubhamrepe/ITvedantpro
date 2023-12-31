@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Video List</title>
+</head>
+<body>
+    <h2>Django Sessions</h2>
+    <ul>
+        {% for video in videos %}
+            <li>{{video.title}}<br>
+                <a href="{{video.e_book.url}}" >View E-book</a><br>
+                <a href="{{video.video_file.url}}">watch video</a>
+            </li>
+            {% endfor %}
+    </ul>
+    
+</body>
+</html>

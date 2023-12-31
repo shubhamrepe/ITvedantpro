@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Remove Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #dc3545; /* Bootstrap's danger color */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Remove Course</h1>
+
+    <p>Are you sure you want to remove Student {{ course.name }}?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Remove Course</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,8 @@
+
+  <h1>Remove Professor</h1>
+  <p>Are you sure you want to remove Professor {{ professor.name }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Remove Professor</button>
+  </form>
+

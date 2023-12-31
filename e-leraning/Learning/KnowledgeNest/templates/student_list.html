@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Qualification</th>
+                <th>Course Enrolled</th>
+                <th>Date of Birth</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Nationality</th>
+                <th>Upload Resume</th>
+                <th>Photo</th>
+                <th>Signature</th>
+                <th>Branch Location</th>
+                <th>Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <a href="{% url 'add_student' %}">Add Student</a>
+            {% for student in students %}
+            <tr>
+                <td><a href="{% url 'student_detail' student.id %}">{{ student.name }}</a></td>
+                <td>{{ student.middle_name }}</td>
+                <td>{{ student.last_name }}</td>
+                <td>{{ student.qualification }}</td>
+                <td>{{ student.course_enrolled }}</td>
+                <td>{{ student.dob }}</td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.phone_number }}</td>
+                <td>{{ student.nationality }}</td>
+                <td>
+                    {% if student.upload_resume %}
+                    <a href="{{ student.upload_resume.url }}" class="download-link"
+                        download="{{ student.upload_resume.name }}">
+                        {{ student.upload_resume.name }}
+                    </a>
+                    {% else %}
+                    No resume uploaded
+                    {% endif %}
+                </td>
+                <td><img src="{{ student.photo.url }}" alt="{{ student.name }} Photo" width="50"></td>
+                <td><img src="{{ student.signature.url }}" alt="{{ student.name }} Signature" width="50"></td>
+                <td>{{ student.branch_location }}</td>
+                <td class="manage-buttons">
+                    <a href="{% url 'update_student' student.id %}">Update</a> 
+                    <a href="{% url 'remove_student' student.id %}">Remove</a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
+
+
+

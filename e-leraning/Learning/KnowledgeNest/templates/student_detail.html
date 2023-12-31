@@ -1,0 +1,58 @@
+{% extends "base.html"%}
+{% load static %}
+{% block title %} Details {% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <img src="{% static 'image/l1.png' %}" alt="" width="65px" align="center"><h4>KNOWLEDGENEST</h4>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+        </div>
+    </div>
+
+</nav>
+{% endblock %}
+{% block body %}
+<center><div class="profile-container">
+    <div class="profile-image">
+        {% if student.photo %}
+            <img src="{{ student.photo.url }}" alt="Student Photo"  width="300px" length="200px">
+        {% endif %}
+    </div>
+    <div class="profile-details">
+        <p><strong>ID:</strong> {{ student.id }}</p>
+        <p><strong>Name:</strong> {{ student.name }} {{ student.middle_name }} {{ student.last_name }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Date of Birth:</strong> {{ student.dob }}</p>
+        <p><strong>Address:</strong> {{ student.address }}</p>
+        <p><strong>Qualification:</strong> {{ student.qualification }}</p>
+        <p><strong>Course Enrolled:</strong> {{ student.get_course_enrolled_display }}</p>
+        <p><strong>Nationality:</strong> {{ student.nationality }}</p>
+        <p><strong>Phone Number:</strong> {{ student.phone_number }}</p>
+        {% if student.upload_resume %}
+            <p><strong>Resume:</strong> <a href="{{ student.upload_resume.url }}">Download Resume</a></p>
+        {% endif %}
+        {% if student.signature %}
+            <p><strong>Signature:</strong> <img src="{{ student.signature.url }}" alt="Student Signature"  width="100px" length="100px"></p>
+        {% endif %}
+        {% if assigned_manager %}
+        <h3>Assigned Branch Manager</h3>
+        <p><strong>Name: </strong> {{ assigned_manager.name }}</p>
+        <p><strong>Email: </strong> {{ assigned_manager.email }}</p>
+        <p><strong>Contact: </strong>{{ assigned_manager.number }}</p>
+        
+    {% else %}
+        <p>No assigned branch manager</p>
+    {% endif %}
+
+        <form method="get" action="{% url 'update_student' student.id %}">
+            <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" >Update Profile</button>
+        </form>
+
+    </div>
+</div></center>
+{% endblock %}

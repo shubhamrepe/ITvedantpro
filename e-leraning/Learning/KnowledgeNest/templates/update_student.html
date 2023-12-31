@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Student Profile</title>
+</head>
+<body>
+    <h2>Update Student Profile</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"><a href="{% url 'student_detail' student.id %}">Save Changes</a></button>
+    </form>
+</body>
+</html>

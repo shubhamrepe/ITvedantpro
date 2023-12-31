@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module-list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h3>Modules List</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Modules</th>
+                <th>Add session</th>
+                <th>View session</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Python</td>
+                <td><a href="{% url 'python-video-upload'  %}"> Add</a></td>
+                <td><a href="{% url 'python-video-list' %}">View</a></td>
+                <td><a href="{% url 'add_question' %}">View</a></td>
+            </tr>
+            <tr>
+                <td>Django</td>
+                <td><a href="{% url 'django-video-upload' %}">Add</a></td>
+                <td><a href="{% url 'django-video-list' %}" >View</a></td>
+            </tr>
+            <tr>
+                <td>MySQL</td>
+                <td><a href="{% url 'sql-video-upload' %}" >Add</a></td>
+                <td><a href="{% url 'sql-video-list' %}" >View</a></td>
+            </tr>
+            <tr>
+                <td>WEB</td>
+                <td><a href="{% url 'web-video-upload' %}" >Add</a></td>
+                <td><a href="{% url 'web-video-list' %}" >View</a></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

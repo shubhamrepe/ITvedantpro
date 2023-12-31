@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Portal</title>
+    <style>
+           body{ font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+           }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px; 
+            height: auto; 
+        }
+
+        nav {
+            text-align: right;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            
+            <img src="/static/images/lib.jpg" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'student_list' %}">Students</a></li>
+                <li><a href="{% url 'professor_list' %}">Professors</a></li>
+                <li><a href="{% url 'course_list' %}">Courses</a></li>
+                <li><a href="#branches">Branch Manager</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Welcome to Admin Portal</h1>
+
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% extends "base.html"%}
+{% load static %}
+{% block title %} Full_Stack_developer {% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <img src="{% static 'image/l1.png' %}" alt="" width="65px" align="center"><h4>KNOWLEDGENEST</h4>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+        </div>
+            <a href="{% url 'index' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"> <i class="fa fa-arrow-left ms-3" ></i>  Back</a>
+    </div>
+
+</nav>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1 class="mt-4">Data Science</h1>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h2>Data Analysis</h2>
+                <p>
+                Data science involves analyzing and interpreting complex data sets. Tools like Python with libraries such as Pandas, NumPy, and Matplotlib are commonly used for data analysis.
+                Bootstrap can be used for creating interactive and visually appealing dashboards to showcase your data insights.
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Machine Learning</h2>
+                <p>
+                Machine learning is a key aspect of data science. It involves building models that can learn patterns from data and make predictions or decisions.
+                Frameworks like scikit-learn and TensorFlow are commonly used. Bootstrap can enhance the presentation of your machine learning results in web applications.
+                </p>
+            </div>
+            </div>
+
+            <div class="row mt-4">
+            <div class="col-md-6">
+                <h2>Data Visualization</h2>
+                <p>
+                Communicating your findings effectively is important in data science. Data visualization tools like Matplotlib, Seaborn, and Plotly help in creating informative charts and graphs.
+                Bootstrap can be used to design visually appealing and responsive data dashboards for better user interaction.
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Big Data and Cloud Computing</h2>
+                <p>
+                Dealing with large datasets often involves big data technologies like Apache Spark and cloud computing platforms like AWS, Google Cloud, or Azure.
+                Understanding how to leverage these technologies is essential in advanced data science projects.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static%}
+{% extends "base.html"%}
+{% block title %} Profile {% endblock %}
+
+{% block body %}
+<table align="center">
+    <tr>
+        <td><img src = "{{object.image.url}}" width="300px" length="200px"></td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{object.name}}</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{object.name}}</td>
+    </tr>
+    <tr>
+        <th>Type</th>
+        <td>{{object.type}}</td>
+    </tr>
+    <tr>
+        <th>Color</th>
+        <td>{{object.color}}</td>
+    </tr>
+    <tr>
+        <th>Age</th>
+        <td>{{object.age}} Year</td>
+    </tr>
+    <tr>
+        <th>Loaction</th>
+        <td>{{object.location}}</td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td>{{object.price}}</td>
+    </tr>
+</table>
+<center>
+    <a href="{% url 'dashboard' %}" class="btn btn-primary">Back</a>
+    <a href="" class="btn btn-primary">Buy</a>
+</center>
+{% endblock %}

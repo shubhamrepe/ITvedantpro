@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <script>
+        function showForm() {
+            document.getElementById('addQuestionForm').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h2>Question Added Successfully!</h2>
+    <!-- You can add any content here to show a success message -->
+    <p>Thank you for adding the question.</p>
+    <a href="{% url 'quiz' %}">Go back to Home</a> <!-- Link to home page or any other page -->
+    
+    <!-- Form to add more questions, initially hidden -->
+    <form id="addQuestionForm" action="{% url 'add_question' %}" method="get" style="display: none;">
+        <!-- Your form fields -->
+        <label for="text">Question:</label>
+        <input type="text" id="text" name="text"><br><br>
+        <label for="choice1">Choice 1:</label>
+        <input type="text" id="choice1" name="choice1"><br><br>
+        <label for="choice1">Choice 2:</label>
+        <input type="text" id="choice1" name="choice1"><br><br>
+        <label for="choice1">Choice 3:</label>
+        <input type="text" id="choice1" name="choice1"><br><br>
+        <label for="choice1">Choice 4:</label>
+        <input type="text" id="choice1" name="choice1"><br><br>
+        
+        <!-- Add other choice inputs -->
+        <label for="correct_choice">Correct Choice:</label>
+        <select id="correct_choice" name="correct_choice">
+            <option value="1">Choice 1</option>
+            <option value="1">Choice 2</option>
+            <option value="1">Choice 3</option>
+            <option value="1">Choice 4</option>
+            <!-- Add options for other choices -->
+        </select><br><br>
+        <button type="submit">Add Question</button>
+    </form>
+    
+    <!-- Button to show the form for adding another question -->
+    <button onclick="showForm()">Add More Questions</button>
+</body>
+</html>

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} DashBoard {% endblock %}
+
+{% block navbar %}
+  <span style="font-family: verdana, geneva, sans-serif;">
+    <div class="container-1">
+      <nav id="nav">
+        <ul class="navbar-nav ms-auto p-4 p-lg-0">
+          <li><a href="" id="logo" class="nav-item nav-link">
+            <img src="{% static 'image/l1.png' %}" alt="logo">
+            <span class="nav-item">DashBoard</span>
+          </a></li>
+          <li><a href="" class="nav-item nav-link">
+            <i class="fas fa-home"></i>
+            <span class="nav-item">Home</span>
+          </a></li>
+          <li><a href="{% url 'student_detail' user_profile.id %}" class="nav-item nav-link">
+            <i class="fas fa-user"></i>
+            <span class="nav-item">Profile</span></a>
+          </a></li>
+          <li><a href="" class="nav-item nav-link">
+            <i class="fas fa-tasks"></i>
+            <span class="nav-item">Assessment</span>
+          </a></li>
+          <li><a href="#footer-0-0" class="nav-item nav-link">
+            <i class="fas fa-question-circle"></i>
+            <span class="nav-item">Help</span>
+          </a></li>
+          <li><a href="" class="nav-item nav-link">
+              <i class="fas fa-user-plus"></i>
+              <span class="nav-item">Refer & Earn</span>
+            </a></li>
+          <li><a href="{% url 'slogout' %}" class="nav-item nav-link">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-item">Log out</span>
+          </a></li>
+        </ul>
+      </nav>
+{% endblock %}
+
+{% block body %}
+      <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+        // Function to draw the progress report chart
+        function drawProgressChart() {
+          var ctx = document.getElementById('progressChart').getContext('2d');
+          var progressData = {
+            labels: ['Web Development', 'MySQL Development'],
+            datasets: [{
+              label: 'Progress',
+              data: [60, 30],  // Replace with actual progress data
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+              ],
+              borderWidth: 1
+            }]
+          };
+
+          var progressChart = new Chart(ctx, {
+            type: 'bar',
+            data: progressData,
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  max: 100,
+                }
+              }
+            }
+          });
+        }
+
+        // Call the function when the document is ready
+        document.addEventListener("DOMContentLoaded", function () {
+          drawProgressChart();
+        });
+      </script>
+
+      <section class="main">
+        <div class="main-top">
+          <h1>Welcome, <span style="color:orange">{{ user_profile.name }}</span>
+            <span> <img src="{{ user_profile.photo.url }}" alt="{{ user_profile.name }}'s profile_pic"
+                        width="130" height="130" class="rounded-circle"></span></h1>
+        </div>
+              <!-- Progress Report Section -->
+        <div class="progress-report-section">
+          <h2>Progress Report</h2>
+          <canvas id="progressChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Dynamic Skill Section -->
+        <div class="main-skills">
+          <div class="card w-50">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Web development</h3>
+            <p>60% - progress</p>
+            <a href="{% url 'web-video-list' %}"><button>continue</button></a>
+          </div>
+          <div class="card w-50">
+            <i class="fa fa-database" aria-hidden="true"></i>
+            <h3>MySQL development</h3>
+            <p>30% - progress</p>
+            <a href="{% url 'sql-video-list' %}" method="get"><button>continue</button></a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </span>
+{% endblock %}

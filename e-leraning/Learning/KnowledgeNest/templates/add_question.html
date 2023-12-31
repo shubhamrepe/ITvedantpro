@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Question</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <h2>Add Question</h2>
+    <form method="post" id="questionForm">
+        {% csrf_token %}
+        {{ formset.management_form }}  <!-- Include the management form for formset -->
+
+        <div id="questionFields">
+            <!-- Loop through formset and display each form -->
+            {% for form in formset %}
+                <div class="question">
+                    {{ form.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <button type="button" onclick="addQuestion()">Add More</button>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function addQuestion() {
+            var questionCount = $('.question').length + 1;
+            var newQuestion = $('.question').first().clone();
+
+            // Update field names and IDs for each cloned question field
+            newQuestion.find('input[type="text"]').each(function () {
+                var oldName = $(this).attr('name');
+                var parts = oldName.split('-');
+                var newName = parts[0] + '-' + (questionCount - 1) + '-' + parts[2];
+                $(this).attr('name', newName);
+                $(this).attr('id', 'id_' + newName);
+                $(this).val('');
+            });
+
+            $('#questionFields').append(newQuestion);
+        }
+    </script>
+</body>
+</html>

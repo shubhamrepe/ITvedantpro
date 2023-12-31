@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Professor List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .add-button {
+            margin-top: 10px;
+            display: block;
+        }
+
+        .manage-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <h1>Professor List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Courses Teaching</th>
+                <th>Photo</th>
+                <th>Branch Location</th>
+                <th>Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for professor in professors %}
+                <tr>
+                    <td>{{ professor.name }}</td>
+                    <td>{{ professor.email }}</td>
+                    <td>{{ professor.number }}</td>
+                    <td>{{ professor.courses_teaching }}
+                    </td>
+                    <td><img src="{{ professor.photo.url }}" alt="{{ professor.name }} Photo" width="50"></td>
+                    <td>{{ professor.branch_location }}</td>
+                    <td class="manage-buttons">
+                        <a href="{% url 'update_professor' professor.id %}">Update</a>
+                        <a href="{% url 'remove_professor' professor.id %}">Remove</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_professor' %}" class="add-button">Add Professor</a>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% extends "base.html"%}
+{% load static %}
+{% block title %} Full_Stack_developer {% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <img src="{% static 'image/l1.png' %}" alt="" width="65px" align="center"><h4>KNOWLEDGENEST</h4>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+        </div>
+            <a href="{% url 'index' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"> <i class="fa fa-arrow-left ms-3" ></i>  Back</a>
+    </div>
+
+</nav>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h1 class="mt-4">Full Stack Web Development</h1>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h2>Frontend Development</h2>
+            <p>
+            Bootstrap is a popular front-end language that allows you to build responsive and mobile-first web pages easily.
+            It provides a set of pre-designed components and styles, making it efficient for creating modern and visually appealing user interfaces.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Backend Development</h2>
+            <p>
+            In full-stack development, the backend is responsible for server-side logic, databases, and application integration.
+            Common technologies for backend development include Node.js, Python with Django or Flask, Ruby on Rails, and more.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h2>Database Management</h2>
+            <p>
+            Understanding databases is crucial for full-stack developers. Common databases include MySQL  and others.
+            Knowing how to interact with databases and manage data is a key skill in full-stack web development.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Deployment and Hosting</h2>
+            <p>
+            Learn about deploying web applications to servers or cloud platforms. Services like AWS is commonly used for hosting web applications.
+            Understanding deployment processes is essential to make your web applications accessible to users.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Profile</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .profile-container {
+            display: flex;
+        }
+        .profile-image {
+            margin-right: 20px;
+        }
+        .profile-image img {
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .profile-details {
+            flex: 1;
+        }
+        .profile-details p {
+            margin: 5px 0;
+        }
+        .profile-details img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Profile</h2>
+    <div class="profile-container">
+        <div class="profile-image">
+            {% if student.photo %}
+                <img src="{{ student.photo.url }}" alt="Student Photo">
+            {% endif %}
+        </div>
+        <div class="profile-details">
+            <p><strong>ID:</strong> {{ student.id }}</p>
+            <p><strong>Name:</strong> {{ student.name }} {{ student.middle_name }} {{ student.last_name }}</p>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Date of Birth:</strong> {{ student.dob }}</p>
+            <p><strong>Address:</strong> {{ student.address }}</p>
+            <p><strong>Qualification:</strong> {{ student.qualification }}</p>
+            <p><strong>Course Enrolled:</strong> {{ student.get_course_enrolled_display }}</p>
+            <p><strong>Nationality:</strong> {{ student.nationality }}</p>
+            <p><strong>Phone Number:</strong> {{ student.phone_number }}</p>
+            {% if student.upload_resume %}
+                <p><strong>Resume:</strong> <a href="{{ student.upload_resume.url }}">Download Resume</a></p>
+            {% endif %}
+            {% if student.signature %}
+                <p><strong>Signature:</strong> <img src="{{ student.signature.url }}" alt="Student Signature"></p>
+            {% endif %}
+            {% if assigned_manager %}
+            <h3>Assigned Branch Manager</h3>
+            <p><strong>Name: </strong> {{ assigned_manager.name }}</p>
+            <p><strong>Email: </strong> {{ assigned_manager.email }}</p>
+            <p><strong>Contact: </strong>{{ assigned_manager.number }}</p>  
+        {% else %}
+            <p>No assigned branch manager</p>
+        {% endif %}
+            <form method="get" action="{% url 'update_student' student.id %}">
+                <button type="submit">Update Profile</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
