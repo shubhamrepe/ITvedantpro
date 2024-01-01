@@ -1,30 +1,53 @@
-<h1 align="center">Hi 👋, I'm Shubham Repe</h1>
-<h3 align="center">A passionate Software Engineer from India</h3>
 
-<img align="right" alt="coading" width="400" src="https://user-images.githubusercontent.com/55389276/140866485-8fb1c876-9a8f-4d6a-98dc-08c4981eaf70.gif">
-
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=shubhamrepe&label=Profile%20views&color=0e75b6&style=flat" alt="shubhamrepe" /> </p>
-
-- 🔭 I’m currently working on **Knowledge-Nest E-learning Website**
-
-- 🌱 I’m currently learning **django Framework, Full stack develoment**
-
-- 👨‍💻 All of my projects are available at [https://shubhamrepe0.wixsite.com/sr1545](https://shubhamrepe0.wixsite.com/sr1545)
-
-- 📫 How to reach me **shubhamrepe0@gmail.coom**
-
-- 📄 Know about my experiences [https://drive.google.com/file/d/1N6UzhhQdCrkSsy1XbxO-zOH2G__tXJ0e/view?usp=sharing](https://drive.google.com/file/d/1N6UzhhQdCrkSsy1XbxO-zOH2G__tXJ0e/view?usp=sharing)
-
-- ⚡ Fun fact **I am funny😂**
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://instagram.com/shubhya_x07" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="shubhya_x07" height="30" width="40" /></a>
+<p align="center"><img align="center" width="280" src="./.github/logo-dark.svg#gh-dark-mode-only"/></p>
+<p align="center"><img align="center" width="280" src="./.github/logo-light.svg#gh-light-mode-only"/></p>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=django,css,html,python,bootsrap" />
+  <br/>
+  <a href="https://discord.movie-web.app"><kbd>🔵 discord</kbd></a> 
 </p>
+<br/><br/>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> </p>
+# ⚡What is Knowledge-Nest website?
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=shubhamrepe&show_icons=true&locale=en&layout=compact" alt="shubhamrepe" /></p>
+ Knowledge-Nest web is a an ITtraining Institute website wich used for detail view.
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=shubhamrepe&show_icons=true&locale=en" alt="shubhamrepe" /></p>
+This service works by displaying video files and queses displaying by owner of site and professor staff.
+
+# 🔥Features
+
+- from student enqery to enroll all process in one site.
+- online payment system.
+- progress report of student.
+
+## 🍄 Philosophy
+
+This project is meant to be simple and easy to use. Keep features minimal but polished.
+We do not want this project to be yet another bulky streaming site, instead it aims for minimalism.
+
+## ⚠️ Limitations
+
+- Due to being a static site, there can be no SSR
+- To keep it cheap to host, amount of proxied requests need to be kept to a minimum
+- Also to keep it cheap, no content must ever be streamed through the proxy. So only streams not protected by CORS headers.
+
+# 🧬 Running locally for development
+
+To run locally, you must first clone the repository. After that run the following commands in the root of the repository:
+```bash
+pnpm install
+pnpm run dev
+```
+
+You have to also make an `.env` file to configure your environment. Inspire it from the content of `example.env`.
+
+To build production files, run:
+```bash
+pnpm build
+```
+
+## 🤝 Thanks to all Contributors
+This project would not be possible without our amazing contributors and the community. Thanks a lot! Keep rocking 🍻.
+
+
+
