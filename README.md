@@ -25,11 +25,6 @@ This service works by displaying video files and queses displaying by owner of s
 This project is meant to be simple and easy to use. Keep features minimal but polished.
 We do not want this project to be yet another bulky streaming site, instead it aims for minimalism.
 
-## ⚠️ Limitations
-
-- Due to being a static site, there can be no SSR
-- To keep it cheap to host, amount of proxied requests need to be kept to a minimum
-- Also to keep it cheap, no content must ever be streamed through the proxy. So only streams not protected by CORS headers.
 
 # 🧬 Running locally for development
 
