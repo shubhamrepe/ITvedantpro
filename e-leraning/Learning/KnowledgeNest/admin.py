@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Student, Professor, BranchManager,studentlog, Course, Video
+from .models import Student, Professor, BranchManager,studentlog, Course, Video, spayment
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('name', 'course_enrolled', 'phone_number', 'email')
@@ -38,6 +38,12 @@ class ChoiceInline(admin.TabularInline):  # Display choices inline in Question a
 
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
+
+    
+class paymentAdmin(admin.ModelAdmin):
+    list_display=('name','payment_id','amount','paid')
+
+admin.site.register(spayment,paymentAdmin)
 
 admin.site.register(Question)
 admin.site.register(Choice)

@@ -57,4 +57,9 @@ urlpatterns = [
     path('evaluate/', views.evaluate_quiz, name='evaluate'),
     path('add/', views.add_question, name='add_question'),
     path('success/', views.success_page, name='success'),
+
+    
+    #student payment
+    path('spayment/',views.payment_main,name="spayment"),
+    path('sucpayment/',views.payment_suc,name='sucpayment'),
 ]

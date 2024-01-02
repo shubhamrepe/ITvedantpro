@@ -104,3 +104,12 @@ class Choice(models.Model):
     def _str_(self):
         return self.text
     
+
+#payment section
+    
+class spayment(models.Model):
+    name=models.CharField(max_length=100)
+    amount=models.BigIntegerField()
+    payment_id=models.CharField(max_length=200)
+    paid=models.BooleanField(default=False)
+    

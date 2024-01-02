@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404,redirect,HttpResponse
-from .models import Student,BranchManager,Professor,Video,Course
+from .models import Student,BranchManager,Professor,Video,Course,spayment
 from .forms import StudentForm,ProfessorForm,StudentLoginForm,VideoForm,CourseForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login,logout
@@ -9,6 +9,10 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.views.generic import ListView,CreateView,DetailView
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
+
+# ####payment 
+import razorpay
+from django.views.decorators.csrf import csrf_exempt
 
 
 #Student Profile For student
@@ -376,3 +380,30 @@ def add_question(request):
 
 def success_page(request):
     return render(request, 'success.html')
+
+
+
+############payment module
+
+def payment_main(request):
+    if request.method=="POST":
+        name=request.POST.get('name')
+        amount=int(request.POST.get('amount'))*100
+
+        #create a client
+        client=razorpay.Client(auth=('rzp_test_FTdmAq9pvL8sJF','rNbqXdBzhYsEpzIwHnRsYZfk'))
+        payment=client.order.create({'amount':amount,'currency':'INR','payment_capture':'1'})
+        cpay=spayment(name=name,amount=amount,payment_id=payment['id'])
+        print(payment)
+        cpay.save()
+        return render(request,"paymentmain.html",{'payment':payment})
+
+        
+    return render(request,"paymentmain.html")
+
+@csrf_exempt
+def  payment_suc(request):
+    if request.method=="POST":
+        a=request.POST
+        print(a)
+    return render(request,"paymentsuc.html")
